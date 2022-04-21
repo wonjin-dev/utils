@@ -1,13 +1,13 @@
 const parsingDate = () => {
-  const curr = new Date();
-  const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
-  const timeMsDiff = 9 * 60 * 60 * 1000;
-  const koreaTime = new Date(utc + timeMsDiff);
-  const now = String(koreaTime);
-  const split = now.split(' ');
-  const dayNow = split[4].split(':');
+  const curr: Date = new Date();
+  const utc: number = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
+  const timeMsDiff: number = 9 * 60 * 60 * 1000;
+  const koreaTime: Date = new Date(utc + timeMsDiff);
+  const now: string = String(koreaTime);
+  const split: string[] = now.split(' ');
+  const dayNow: string[] = split[4].split(':');
 
-  const parseMM = (month) => {
+  const parseMM = (month: string): string => {
     if (month === 'Jan') {
       return '1';
     }
@@ -45,7 +45,7 @@ const parsingDate = () => {
       return '12';
     }
     else {
-      return console.log('invalid param');
+      throw new Error ('invalid param');
     }
   }
 
@@ -59,9 +59,9 @@ const parsingDate = () => {
     ss: dayNow[2],
   };
 
-  const date = `${format.YYYY}-${format.MM}-${format.DD}`;
-  const time = `${format.hh}:${format.mm}`;
-  const full = `${format.YYYY}-${format.MM}-${format.DD} ${format.hh}:${format.mm}`;
+  const date: string = `${format.YYYY}-${format.MM}-${format.DD}`;
+  const time: string = `${format.hh}:${format.mm}`;
+  const full: string = `${format.YYYY}-${format.MM}-${format.DD} ${format.hh}:${format.mm}`;
 
   return {format, date, time, full};
 };
