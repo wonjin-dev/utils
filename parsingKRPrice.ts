@@ -11,3 +11,24 @@ const parsingKRPrice = (price?: number): string => {
     }
   }
 };
+
+/*
+! RN에서 안드로이드에 적용 안 되는 이슈
+
+## android/app/build.gradle
+
+
+
+해당 위치에서 기존 파일
+
+```
+def jscFlavor = 'org.webkit:android-jsc:+'
+```
+부분을 다음과 같이 변경한다.
+
+
+
+```
+def jscFlavor = 'org.webkit:android-jsc-intl:+'
+```
+*/
