@@ -1,13 +1,11 @@
 const parsingKRPrice = (price?: number): string => {
-  if (typeof price !== 'number' || undefined) {
+  if (typeof price !== 'number' && price !== undefined) {
     throw new Error('Please check your type of argument. It muse be Number');
   } else {
-    if (typeof price === undefined) {
+    if (price === undefined) {
       return '0';
     } else {
-      const convertedPrice: string = price?.toLocaleString('ko-kr');
-
-      return convertedPrice;
+      return price?.toLocaleString('ko-kr');
     }
   }
 };
